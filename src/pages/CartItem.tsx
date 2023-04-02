@@ -30,14 +30,14 @@ const CartItem: React.FC<CartItemProps> = ({
   const dispatch = useDispatch();
 
   const onClickPlus = () => {
-    dispatch(addItem({ id } as CartItemType));
+    dispatch(addItem({ id, type, size } as CartItemType));
   };
   const onClickMinus = () => {
-    dispatch(minusItem(id));
+    dispatch(minusItem({ id, type, size } as CartItemType));
   };
-  const onClickRemuve = () => {
+  const onClickRemove = () => {
     if (window.confirm("Видалити товар?")) {
-      dispatch(removeItem(id));
+      dispatch(removeItem({ id, type, size } as CartItemType));
     }
   };
 
@@ -101,11 +101,11 @@ const CartItem: React.FC<CartItemProps> = ({
         </button>
       </div>
       <div className="cart__item-price">
-        <b>{price} ₴</b>
+        <b>{price * count} ₴</b>
       </div>
       <div className="cart__item-remove">
         <div
-          onClick={onClickRemuve}
+          onClick={onClickRemove}
           className="button button--outline button--circle"
         >
           <svg

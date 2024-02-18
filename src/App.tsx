@@ -14,7 +14,7 @@ const App: React.FC = () => {
       <Header />
       <div className="content">
         <div className="container">
-          <Routes basename="black1ight.github.io/pizza-page/">
+          <Routes>
             <Route path="/" element={<Home />} />
             <Route path="*" element={<NotFound />} />
             <Route path="/pizza/:id" element={<FullPizza />} />
